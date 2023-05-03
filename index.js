@@ -1,13 +1,16 @@
 const http = require('http');
+const fs = require('fs');
 
 const hostname = '192.168.100.26';
 const port = 8080;
 
 const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
+  fs.readFile('index.html', (err, data) => {
+    res.writeHead(200, { 'Content-type': 'text/html' });
+    res.write(data);
 
-  res.end('Hello user');
+    return res.end()
+  })
 })
 
 server.listen(port, hostname, () => {
