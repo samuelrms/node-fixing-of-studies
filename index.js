@@ -1,11 +1,16 @@
 const { log } = require('console');
 const fs = require('fs')
 
-fs.readFile('hello-user.txt', (err, data) => {
-  let str = data.toString();
-
-  /**@info Turns my text file into an array without the separator */
-  let newStr = str.split('/')
-
-  log(newStr)
+/**@info Function to delete the selected file */
+const deleteFile = () => fs.unlink('hello-user.txt', (err) => {
+  log('File deleted')
 })
+
+deleteFile()
+
+/**@info Function to rename the selected file*/
+const renameFile = () => fs.rename('hello-user.txt', 'hello-word.txt', (err) => {
+  log('Renamed file')
+})
+
+renameFile()
