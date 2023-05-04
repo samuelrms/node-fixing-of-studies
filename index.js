@@ -1,7 +1,16 @@
 const { log } = require('console');
+const customModel = require('./modelsExemple')
+const ExempleClass = require('./models')
 
-log('\nInstall nodemon')
-log('\nnpm install -g nodemon\n')
-log('||\n')
-log('npm i nodemon\n')
-log('To run nodemon just open the terminal in your project folder, either by vscode or by prompt and type "nodemon"\n')
+const exempleClass = new ExempleClass()
+
+log(customModel.name)
+log(customModel.age, '\n')
+log(customModel.obj, '\n')
+
+log(customModel.arr, '\n')
+log(customModel.soma(1, 1), '\n')
+customModel.customModels()
+
+exempleClass.test()
+log(`\n${exempleClass.name}`)
